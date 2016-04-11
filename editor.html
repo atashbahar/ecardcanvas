@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densityDpi=medium-dpi">
+    <meta name="description" content="" />
+    <title>Editor - eCardCanvas.com</title>
+    <script src="scripts/vendor/modernizr-2.6.2.js"></script>
+    <link href="style/base.css" rel="stylesheet" />
+    <link href="style/layout.css" rel="stylesheet" />
+    <link href="style/magnific-popup.css" rel="stylesheet" />
+    <link href="style/nouislider.fox.css" rel="stylesheet" />
+    <link href="style/spectrum.css" rel="stylesheet" />
+    <link href="style/jquery.Jcrop.css" rel="stylesheet" />
+    <link href="style/joyride-2.1.css" rel="stylesheet" />
+    <link href="style/editor.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="editor border-box">
+            <div class="editor-navbar clearfix">
+                <ul>
+                    <li class="btn border-box tip-add-text" data-ecc-id="text"><span><i class="ecc-icon ecc-icon-plus"></i> Text</span></li>
+                    <li class="btn border-box tip-add-clipart" data-ecc-id="clipart"><span><i class="ecc-icon ecc-icon-plus"></i> Clipart</span></li>
+                    <li class="btn last border-box tip-save-card" data-ecc-id="save"><span><i class="ecc-icon ecc-icon-save"></i> Save</span></li>
+                </ul>
+            </div>
+            <div class="editor-body" tabindex="0">
+                <div id="editor-canvas-container"></div>
+                <div class="editor-progress"><span>Loading</span></div>
+            </div>
+            <div class="editor-tools">
+                <div class="editor-toolbar">
+                    <ul>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="photoGroup" title="Change Photo" class="tip-change-background"><i class="ecc-editor-icon ecc-editor-icon-swap"></i>change</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="Upload" title="Upload Photo" class="tip-upload-photo"><i class="ecc-editor-icon ecc-editor-icon-upload"></i>upload</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="frameGroup" title="Frame"><i class="ecc-editor-icon ecc-editor-icon-frame"></i>frame</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="Brightness" title="Brightness"><i class="ecc-editor-icon ecc-editor-icon-brightness"></i>brightness</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="Contrast" title="Contrast"><i class="ecc-editor-icon ecc-editor-icon-contrast"></i>contrast</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="background" data-ecc-id="Filter" title="Filters"><i class="ecc-editor-icon ecc-editor-icon-filter"></i>filter</li>
+                        <li data-ecc-method="deleteShape" data-ecc-type="clipart text" title="Delete"><i class="ecc-editor-icon ecc-editor-icon-trash"></i>delete</li>
+                        <li data-ecc-method="moveToTop" data-ecc-type="clipart text" title="Move to Top"><i class="ecc-editor-icon ecc-editor-icon-front"></i>bring front</li>
+                        <li data-ecc-method="moveToBottom" data-ecc-type="clipart text" title="Move to Bottom"><i class="ecc-editor-icon ecc-editor-icon-back"></i>move back</li>
+                        <li data-ecc-method="flipHorizontal" data-ecc-type="clipart" title="Flip Horizontal"><i class="ecc-editor-icon ecc-editor-icon-flip"></i>flip</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="clipart text" data-ecc-id="shadow" title="Shadow"><i class="ecc-editor-icon ecc-editor-icon-shadow"></i>shadow</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="clipart text" data-ecc-id="Opacity" title="Opacity"><i class="ecc-editor-icon ecc-editor-icon-opacity"></i>opacity</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="clipart" data-ecc-id="FillColor" title="Color Fill"><i class="ecc-editor-icon ecc-editor-icon-color"></i>color fill</li>
+                        <li data-ecc-method="editText" data-ecc-type="text" data-ecc-id="editText" title="Edit Text"><i class="ecc-editor-icon ecc-editor-icon-text" title="Edit Text"></i>edit</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="text" data-ecc-id="fontFamilyGroup" title="Font Family"><i class="ecc-editor-icon ecc-editor-icon-font"></i>font</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="text" data-ecc-id="style" title="Text Style"><i class="ecc-editor-icon ecc-editor-icon-text-style"></i>style</li>
+                        <li data-ecc-method="showProperty" data-ecc-type="text" data-ecc-id="stroke" title="Text Stroke"><i class="ecc-editor-icon ecc-editor-icon-text-stroke"></i>stroke</li>
+                    </ul>
+                </div>
+                <div class="editor-pans"></div>
+            </div>
+        </div>
+
+        <div class="editor-not-supported">
+            <p>Your browser doesn't support <a href="http://en.wikipedia.org/wiki/Canvas_element">html5 canvas</a>. Please upgrade
+                your browser to a more recent one!</p>
+        </div>
+
+        <div class="card-save-form">
+            <div class="form">
+
+                <form action="/edit" method="post">
+                    <label class="label-optional label-optional-personal label-required-public" for="Title">Title</label>
+                    <input id="Title" name="Title" type="text" value="" />
+                    <label class="label-optional label-optional-personal label-required-public" for="CategoryId">Category</label>
+                    <select id="CategoryId" name="CategoryId">
+                        <option value="">Select a category</option>
+                        <option value="2">Birthday</option>
+                        <option value="3">Love</option>
+                        <option value="4">Friendship</option>
+                        <option value="5">Thank You</option>
+                        <option value="6">Anniversary</option>
+                        <option value="7">Get Well</option>
+                        <option value="8">Congratulations</option>
+                        <option value="9">Funny</option>
+                        <option value="10">Celebration</option>
+                        <option value="1">Everyday</option>
+                    </select>
+                    <label class="label-optional" for="Tags">Tags</label>
+                    <input id="Tags" name="Tags" type="text" value="" />
+                    <span class="tip">Separate each tag with a comma (,)</span>
+                    <input id="Description" name="Description" type="hidden" value="Some short or long description" />
+                    <input id="photo" name="photo" type="hidden" value="" />
+                    <input id="definition" name="definition" type="hidden" value="[{src:&#39;background/notebook.png&#39;,type:&#39;background&#39;}]"
+                    />
+                    <input id="filtersDisabled" name="filtersDisabled" type="hidden" value="" />
+                    <button type="submit" class="save" style="width:160px;">Save</button>
+                </form>
+                <div class="status-error"></div>
+                <div class="save-progress">Saving...Please Wait...</div>
+            </div>
+            <p class="card-save-form-terms"><i class="ecc-icon ecc-icon-info"></i> Please note that by saving this card you agree to the <a href="#" target="_blank">terms</a>                of this site.</p>
+            <div class="card-save-form-download">
+                <form action="/Card/DownloadCard" method="post">
+                    <input type="hidden" name="data" />
+                    <p><i class="ecc-icon ecc-icon-save"></i> If You don't want to email or share your card you can alternatively
+                        <a href="#">download it from here</a>.</p>
+                </form>
+            </div>
+        </div>
+
+        <ol id="joyRideTipContent">
+            <li data-class="tip-change-background" data-text="Next" data-options="tipLocation:top;">
+                <h2>Change Background</h2>
+                <p>Change the background of your card by selecting the <strong>Change</strong> option.</p>
+            </li>
+            <li data-class="tip-upload-photo" data-text="Next" data-options="tipLocation:top;">
+                <h2>Upload Photo</h2>
+                <p>Use your personal photos as background by selecting the <strong>Upload</strong> option.</p>
+            </li>
+            <li data-class="tip-add-text" data-button="Next">
+                <h2>Add Text</h2>
+                <p>Add text to your card by selecting the <strong>Text</strong> option on the toolbar.</p>
+            </li>
+            <li data-class="tip-add-clipart" data-button="Next">
+                <h2>Add Clipart</h2>
+                <p>You can add custom clipart to your card by selecting the <strong>Clipart</strong> option on the toolbar.</p>
+            </li>
+            <li data-class="tip-save-card" data-button="Close">
+                <h2>Save Card</h2>
+                <p>Save and share your creation by selecting the <strong>Save</strong> option on the toolbar.</p>
+            </li>
+        </ol>
+    </div>
+
+    <script src="scripts/vendor/jquery-1.10.2.js"></script>
+    <script src="scripts/vendor/jquery.lazyload.js"></script>
+    <script src="scripts/vendor/magnific-popup.js"></script>
+    <script src="scripts/vendor/jquery.Jcrop.js"></script>
+    <script src="scripts/vendor/iscroll-5.0.5.js"></script>
+    <script src="scripts/vendor/waypoints.js"></script>
+    <script src="scripts/vendor/jquery.nouislider.js"></script>
+    <script src="scripts/vendor/spectrum.js"></script>
+    <script src="scripts/vendor/caman-4.1.1.js"></script>
+    <script src="scripts/vendor/kinetic-v4.7.2.js"></script>
+    <script src="scripts/vendor/jquery.joyride-2.1.js"></script>
+    <script src="scripts/vendor/jquery.cookie.js"></script>
+    <script src="scripts/editor/helpers.js"></script>
+    <script src="scripts/model/base.js"></script>
+    <script src="scripts/model/shape.js"></script>
+    <script src="scripts/model/bg.js"></script>
+    <script src="scripts/model/clipart.js"></script>
+    <script src="scripts/model/text.js"></script>
+    <script src="scripts/model/card.js"></script>
+    <script src="scripts/editor/data.js"></script>
+    <script src="scripts/editor/progressbar.js"></script>
+    <script src="scripts/editor/win.js"></script>
+    <script src="scripts/editor/pan.js"></script>
+    <script src="scripts/editor/toolbar.js"></script>
+    <script src="scripts/editor/editor.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.0.31/webfont.js"></script>
+    <script>
+        var environment = { 
+            fileInputSupported: isFileInputSupported, 
+            hasTouch: hasTouch,
+            saveUrl: "card/SaveCard",
+            cardConfig: [{src:'background/notebook.png',type:'background'}],
+            contentPath: "content/",
+            assetsPath:  "content/assets/",
+            assetThumbPath: "content/thumbnails/{0}"
+        };
+    </script>
+
+</body>
+
+</html>

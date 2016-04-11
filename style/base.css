@@ -1,0 +1,171 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* typography.css */
+html {font-size:100.01%;}
+body {font-size:14px;color:#222;background:#fff;line-height:20px;}
+body, input, textarea, select { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
+h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:2em;margin-bottom:0.7em;}
+h3 {font-size:1.5em;line-height:1;margin-bottom:0.4em;}
+h4 {font-size:1.3em;line-height:1;margin-bottom:0.2em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:0.1em;}
+h6 {font-size:1em;font-weight:bold;}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+p {margin:0 0 1em;}
+a:focus, a:hover {color:#09f;}
+a {color:#41B7D8;text-decoration:none;}
+strong, dfn {font-weight:bold;}
+em, dfn {font-style:italic;}
+sup, sub {line-height:0;}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; 
+} 
+
+input, button, textarea { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+
+input[type=text], input[type=password], textarea, select { border: solid 1px #ccc; padding: 4px !important; margin: 0px; vertical-align: top; border-radius: 4px; background: #f6f6f6; font-size: 1.3em; color: #333; transition: all 0.2s; }
+    input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus { background: #fff; border-color: #bbb; }
+
+/*button[type=submit] { font-weight: bold; border: none; color: #c9c9c9; padding: 6px 27px 8px 27px; margin-right: 5px; cursor: pointer; border-radius: 5px; background-color: #434343; transition: all 0.2s ease-in-out; }
+    button[type=submit]:hover { color: #fff; background-color: #585858; box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.4); }*/
+
+.border-box { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+
+.form label { font-size: 1.4em; color: #868686; display: inline-block; margin: 13px 0 3px 0; clear: left; }
+    .form label:after { content: ":"; }
+.form input[type=text], .form input[type=password], .form select, .form textarea { width: 100%; margin: 0; display: block; clear: left; }
+    .form input[type=text]:disabled { color: #868686; }
+.form input[type=checkbox] { display: inline-block; margin: 16px 5px 0 0; clear: left; }
+.form .checkbox label { font-size: 1.2em; color: #333; display: inline; }
+    .form .checkbox label:after { content: " "; }
+    .form .checkbox .tip { display: inline; }
+.form button { display: block; margin-top: 15px; }
+.form button, .button { 
+	text-align: center; 
+	line-height: 24px; 
+	padding: 0 10px; 
+	background-color: #EAEAEA; 
+	background-image: linear-gradient(#FAFAFA, #EAEAEA); 
+	background-repeat: repeat-x; 
+	border-color: #DDDDDD #DDDDDD #C5C5C5; 
+	border-style: solid; 
+	border-width: 1px; 
+    border-radius: 3px;
+	color: #333333; 
+	cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+    white-space: nowrap;	
+}
+.form button:hover, .form button:active, .button:hover, .button:active {
+	background-color: #dadada;
+	background-image: linear-gradient(#eaeaea, #dadada);
+    border-color: #ccc #ccc #b5b5b5;
+}
+.form button:focus, .button:focus {
+	border-color: #51A7E8;
+	box-shadow: 0 0 5px rgba(81, 167, 232, 0.5);
+    background-color: #dadada;
+    background-image: none;
+}
+.form button:disabled, .form button:disabled:hover, .button:disabled, .button:disabled:hover {
+	background-color: #E5E5E5;
+    background-image: none;
+    border-color: #C5C5C5;
+    box-shadow: none;
+    color: #666666;
+    cursor: default;
+    opacity: 0.5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.form fieldset { border: solid 2px #eee; padding: 0 15px 15px 15px; margin-top: 15px; }
+    .form fieldset legend { font-size: 1.4em; color: #696969; padding: 0 5px;  }
+
+.form .status { margin-top: 10px; font-weight: bold; }
+.form .tip { display: block; font-size: 0.9em; color: #969696; }
+.form .save-progress { margin-top: 10px; padding-left: 22px; background: url(img/loader.gif) no-repeat left center; color: #656565; display: none; }
+
+::-webkit-input-placeholder { color: #999; }
+::-moz-placeholder { color: #999; }
+input:-ms-input-placeholder { color: #999; }
+
+.status-success { color: green; }
+.status-error { color: #c00; }
+
+.clear { clear: both; visibility: hidden; line-height: 0; height: 0; }
+.hide { display: none; }
+
+.validation-summary-errors, .field-validation-error { color: red; }
+.input-validation-error { border: solid 1px #c00 !important; }
+
+.ellipsis { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+
+.label-required:before { content: "* "; color: #c00; font-size: 1.2em; }
+.label-optional:after { content: " (optional):" !important; color: #aaa; font-size: 0.8em; }
