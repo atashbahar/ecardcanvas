@@ -122,7 +122,7 @@ var PanManager = BaseObject.extend({
             var elem = $('<li class="property-item border-box"><div class="thumb thumb-{1}-{2}">&nbsp;</div><div class="label border-box"><span>{0}</span></div></li>'.format(data.title, propSetting.type.toLowerCase(), data.title.toLowerCase().replace(" ", "-"))).data('val', data.value).appendTo(ul);
 
             if (propSetting.thumb)
-                elem.addClass('property-item-image').find('.thumb').html('').append('<img class="lazy" data-original="' + environment.assetThumbPath.format(data.value) + '" src="' + environment.contentPath + 'Misc/grey.gif" alt="' + data.title + '" />');
+                elem.addClass('property-item-image').find('.thumb').html('').append('<img class="lazy" data-original="' + environment.assetThumbPath.format(data.value) + '" src="' + environment.contentPath + 'misc/grey.gif" alt="' + data.title + '" />');
         }
 
         this.drawPropertyCarousel(ul, parent, data.length);
