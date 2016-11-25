@@ -99,7 +99,7 @@ $(function () {
                 });
             });
         };
-        img.src = environment.contentPath + "Misc/speed_test.jpg";
+        img.src = environment.contentPath + "misc/speed_test.jpg";
     }
 
     function initilize() {
