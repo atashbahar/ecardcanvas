@@ -48,8 +48,7 @@
         this.setHeight(this.txt.getHeight());
     },
     setText: function (txt) {
-        this.title = txt;
-        this.txt.setText(txt);
+        if (this.selected) { this.title = txt; this.txt.setText(txt); }
         if (this.stroke) { this.stroke.setText(txt); }
         this._updateHeight();
         this.redraw();
